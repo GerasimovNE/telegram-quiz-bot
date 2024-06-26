@@ -17,7 +17,7 @@ async def update_result(user_id,user_name,result):
 
 async def get_users_result():
     async with aiosqlite.connect(DB_NAME) as db:
-        async with db.execute('SELECT * FROM quiz_results ORDER BY result ASC') as users_results:
+        async with db.execute('SELECT * FROM quiz_results ORDER BY result DESC') as users_results:
             return await users_results.fetchall()
 
 async def get_result(user_id):
